@@ -55,5 +55,20 @@ public class Team
             {
                 Console.WriteLine("Zawodnik nie istnieje w drużynie.");
             }
-            }
+    }
+    
+    public void ShowTeamStats()
+    {
+        if (players.Count == 0)
+        {
+            Console.WriteLine("Drużyna nie ma zawodników.");
+            return;
+        }
+
+        Console.WriteLine("Statystyki drużyny:");
+        foreach (var player in players)
+        {
+            Console.WriteLine($"Zawodnik: {player.Name}, Pozycja: {player.Position}, Wynik: {player.Score}");
+        }
+    }
 }
