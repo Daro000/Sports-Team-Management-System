@@ -82,5 +82,22 @@ public class Team
         return totalScore / players.Count;
     }
     
+    public void SearchPlayersByPosition(string position)
+    {
+        bool found = false;
+        foreach (var player in players)
+        {
+            if (player.Position.ToLower() == position.ToLower())
+            {
+                Console.WriteLine($"Zawodnik: {player.Name}, Wynik: {player.Score}");
+                found = true;
+            }
+        }
+        if (!found)
+        {
+            Console.WriteLine($"Brak zawodników na pozycji {position}.");
+        }
+    }
+
     
 }
