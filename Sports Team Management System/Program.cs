@@ -64,11 +64,23 @@ public class Team
             Console.WriteLine("Drużyna nie ma zawodników.");
             return;
         }
-
         Console.WriteLine("Statystyki drużyny:");
         foreach (var player in players)
         {
             Console.WriteLine($"Zawodnik: {player.Name}, Pozycja: {player.Position}, Wynik: {player.Score}");
         }
     }
+    
+    public static double CalculateAverageScore(List<Player> players)
+    {
+        if (players.Count == 0) return 0;
+        double totalScore = 0;
+        foreach (var player in players)
+        {
+            totalScore += player.Score;
+        }
+        return totalScore / players.Count;
+    }
+    
+    
 }
