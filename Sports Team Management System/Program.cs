@@ -99,5 +99,22 @@ public class Team
         }
     }
 
-    
+    public void FilterPlayersByScore(int minScore)
+    {
+        bool found = false;
+
+        foreach (var player in players)
+        {
+            if (player.Score >= minScore)
+            {
+                Console.WriteLine($"Zawodnik: {player.Name}, Pozycja: {player.Position}, Wynik: {player.Score}");
+                found = true;
+            }
+        }
+
+        if (!found)
+        {
+            Console.WriteLine("Brak zawodników spełniających podane kryteria.");
+        }
+    }
 }
