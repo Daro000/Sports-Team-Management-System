@@ -23,7 +23,7 @@ public class Player
 
 public class Team
 {
-    private List<Player> players = new List<Player>();
+    public List<Player> players = new List<Player>();
 
 
     public void AddPlayer(Player player)
@@ -116,5 +116,29 @@ public class Team
         {
             Console.WriteLine("Brak zawodników spełniających podane kryteria.");
         }
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Team team = new Team();
+        
+        team.AddPlayer(new Player("Jan Kowalski", "Napastnik", 10));
+        team.AddPlayer(new Player("Marek Nowak", "Obrońca", 5));
+        team.AddPlayer(new Player("Paweł Zieliński", "Bramkarz", 0));
+        
+        team.ShowTeamStats();
+        
+        Console.WriteLine($"Średnia punktów drużyny: {Team.CalculateAverageScore(team.players)}");
+        
+        team.SearchPlayersByPosition("Napastnik");
+        
+        team.FilterPlayersByScore(5);
+        
+        var player = new Player("Andrzej Wiśniewski", "Pomocnik", 8);
+        player.UpdateScore(12);
+        team.AddPlayer(player); 
     }
 }
